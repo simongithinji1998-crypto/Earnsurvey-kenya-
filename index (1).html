@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#087d48">
+<title>Earnsurvey Kenya | Surveys & Rewards</title>
+<style>
+:root{--green:#087d48;--green2:#0aa35d;--ink:#17231d;--muted:#66736c;--bg:#f4f8f5;--line:#e3ebe5;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}.nav{max-width:1080px;margin:auto;padding:13px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--green);font-size:18px}.logo{width:38px;height:38px;border-radius:12px;background:var(--green);color:white;display:grid;place-items:center;font-weight:900}.navlinks{display:flex;align-items:center;gap:20px}.navlinks a{color:#435149;text-decoration:none;font-size:14px}.btn{border:0;border-radius:12px;background:var(--green);color:#fff;padding:12px 17px;font-weight:750;font-size:14px;cursor:pointer;text-decoration:none;display:inline-block}.btn.secondary{background:#e8f5ed;color:var(--green)}.wrap{max-width:1080px;margin:auto;padding:26px 18px 60px}.hero{background:linear-gradient(125deg,#075d39,#0ba65d);color:#fff;border-radius:25px;padding:36px 28px;display:grid;grid-template-columns:1.3fr .7fr;gap:25px;align-items:center;overflow:hidden}.eyebrow{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#c9f2d8;font-weight:800}.hero h1{font-size:clamp(32px,6vw,52px);line-height:1.08;margin:12px 0}.hero p{color:#e2f6e9;max-width:560px}.hero-card{background:#fff;color:var(--ink);border-radius:20px;padding:22px;box-shadow:0 15px 40px #003b222e}.hero-card .price{font-size:36px;font-weight:850;color:var(--green);margin:5px 0}.small{font-size:12px;color:var(--muted)}.hero-card .btn{width:100%;margin-top:14px}.section{margin-top:35px}.section h2{font-size:24px;margin:0 0 8px}.lead{color:var(--muted);margin:0 0 18px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.tile,.panel{background:#fff;border:1px solid var(--line);border-radius:17px;padding:19px}.tile .ico{font-size:25px}.tile h3{margin:9px 0 5px;font-size:17px}.tile p{margin:0;color:var(--muted);font-size:14px}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.step{background:#fff;border:1px solid var(--line);border-radius:15px;padding:15px}.num{width:29px;height:29px;background:#e8f5ed;color:var(--green);display:grid;place-items:center;border-radius:50%;font-weight:800}.step b{display:block;margin:9px 0 4px}.step span{font-size:13px;color:var(--muted)}.notice{background:#fff8e9;border:1px solid #f3dfb7;color:#6c4b12;border-radius:13px;padding:14px 16px;font-size:13px;margin-top:20px}.footer{margin-top:40px;padding:22px 0;border-top:1px solid var(--line);color:var(--muted);font-size:12px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.modalback{display:none;position:fixed;inset:0;background:#0b2118a8;z-index:10;padding:18px;align-items:center;justify-content:center}.modalback.open{display:flex}.modal{width:min(100%,460px);background:white;border-radius:20px;padding:22px;max-height:90vh;overflow:auto}.modalhead{display:flex;justify-content:space-between;align-items:center}.close{border:0;background:#edf3ef;border-radius:50%;width:34px;height:34px;font-size:20px;cursor:pointer}.field{display:block;margin:13px 0}.field span{display:block;font-size:13px;font-weight:700;margin-bottom:5px}.field input{width:100%;padding:13px;border:1px solid #d5e0d8;border-radius:10px;font:inherit}.check{display:flex;gap:9px;align-items:flex-start;font-size:12px;color:var(--muted);margin:14px 0}.modal .btn{width:100%}.feedback{display:none;margin-top:12px;padding:12px;border-radius:10px;background:#fff5df;color:#684a12;font-size:13px}.feedback.show{display:block}
+@media(max-width:720px){.navlinks a:not(.btn){display:none}.hero{grid-template-columns:1fr;padding:27px 20px}.grid{grid-template-columns:1fr}.steps{grid-template-columns:repeat(2,1fr)}.wrap{padding-top:18px}}
+@media(max-width:380px){.steps{grid-template-columns:1fr}.brand{font-size:16px}}
+</style>
+</head>
+<body>
+<header><div class="nav">
+  <div class="brand"><div class="logo">E</div> Earnsurvey Kenya</div>
+  <nav class="navlinks"><a href="#how">How it works</a><a href="#surveys">Surveys</a><a class="btn" href="#" onclick="openModal();return false">Join now</a></nav>
+</div></header>
+<main class="wrap">
+  <section class="hero">
+    <div><div class="eyebrow">Kenyan survey community</div><h1>Your opinions can make a difference.</h1><p>Join a community where members can take part in genuine research surveys and receive clearly explained rewards when sponsored surveys are available.</p><a class="btn" style="background:#fff;color:#087d48" href="#" onclick="openModal();return false">Create an account</a></div>
+    <div class="hero-card"><div class="small">Proposed one-time account verification fee</div><div class="price">KSh 100</div><div class="small">Pay only after reviewing the terms and payment details. This prototype does not accept payments.</div><button class="btn" onclick="openModal()">Register interest</button></div>
+  </section>
+  <section class="section" id="how"><h2>How it works</h2><p class="lead">A simple process, with clear information at every step.</p>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><b>Create an account</b><span>Enter your details and review the privacy notice.</span></div>
+      <div class="step"><div class="num">2</div><b>Verify membership</b><span>Any fee and its purpose must be disclosed before payment.</span></div>
+      <div class="step"><div class="num">3</div><b>Complete surveys</b><span>Choose eligible surveys and read their requirements.</span></div>
+      <div class="step"><div class="num">4</div><b>Track rewards</b><span>See approved rewards and withdrawal status in your account.</span></div>
+    </div>
+  </section>
+  <section class="section" id="surveys"><h2>Survey opportunities</h2><p class="lead">Example categories for the planned member dashboard.</p>
+    <div class="grid">
+      <article class="tile"><div class="ico">🛒</div><h3>Shopping habits</h3><p>Share feedback about everyday products and shopping experiences.</p></article>
+      <article class="tile"><div class="ico">📱</div><h3>Mobile services</h3><p>Give opinions about digital services and mobile experiences.</p></article>
+      <article class="tile"><div class="ico">🏡</div><h3>Daily life</h3><p>Participate in research about household and community needs.</p></article>
+    </div>
+  </section>
+  <div class="notice"><b>Transparency notice:</b> This is an early website prototype. Registration, accounts, surveys, rewards, and M-Pesa payments are not connected yet. Do not send money or enter real passwords on this demo. Survey availability and reward amounts must be based on genuine research opportunities and disclosed terms.</div>
+  <footer class="footer"><span>© 2026 Earnsurvey Kenya · Prototype</span><span>Contact and privacy information will be added before launch.</span></footer>
+</main>
+<div class="modalback" id="modalback" role="dialog" aria-modal="true" aria-labelledby="modtitle">
+ <div class="modal">
+  <div class="modalhead"><h2 id="modtitle" style="margin:0">Register your interest</h2><button class="close" aria-label="Close" onclick="closeModal()">×</button></div>
+  <p class="small">This is a design preview only. The form will not save or send your information.</p>
+  <form onsubmit="event.preventDefault();document.getElementById('feedback').classList.add('show')">
+   <label class="field"><span>Full name</span><input required autocomplete="name" placeholder="Your full name"></label>
+   <label class="field"><span>Email address</span><input required type="email" autocomplete="email" placeholder="you@example.com"></label>
+   <label class="field"><span>M-Pesa phone number</span><input required type="tel" inputmode="tel" placeholder="07XXXXXXXX"></label>
+   <label class="check"><input type="checkbox" required><span>I understand this is a prototype and no payment or account registration will take place.</span></label>
+   <button class="btn" type="submit">Preview registration</button>
+   <div class="feedback" id="feedback">Preview only: your details have not been saved or sent. Secure registration will be added with the backend.</div>
+  </form>
+ </div>
+</div>
+<script>
+function openModal(){document.getElementById('modalback').classList.add('open')}
+function closeModal(){document.getElementById('modalback').classList.remove('open')}
+document.getElementById('modalback').addEventListener('click',e=>{if(e.target.id==='modalback')closeModal()});
+</script>
+</body></html>
