@@ -1,46 +1,288 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EarnSurvey Kenya</title>
-  <style>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Remote</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <style type="text/css">
     body {
-      font-family: Arial, sans-serif;
-      background: #f1f5f9;
-      text-align: center;
       margin: 0;
-      padding: 30px 15px;
+      padding: 0;
     }
+
+    .full-width {
+      object-fit: scale-down;
+      height: 57vw;
+      width: 90vw;
+    }
+    .unknown-full-width {
+      object-fit: scale-down;
+      height: 51vw;
+      width: 80vw;
+    }
+
     .container {
-      background: white;
-      max-width: 450px;
-      margin: 40px auto;
-      padding: 30px;
-      border-radius: 12px;
+      padding: 8px;
+      margin-top: 20px;
     }
-    h1 { color: #087443; }
-    p { color: #444; line-height: 1.6; }
-    button {
-      background: #087443;
-      color: white;
+
+    .icon {
+      display: flex;
+      justify-content: center;
+      flex: 1;
+    }
+    .icon-around {
+      flex: 2;
+    }
+    .icon-img {
+      object-fit: scale-down;
+      width: 40vw;
+      height: 40vw;
+    }
+
+    .icon-title {
+      display: flex;
+      justify-content: center;
+      
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 5%;
+    }
+
+    .horizontal-center {
+      display: flex;
+      justify-content: center;
+    }
+
+    .mobile-horizontal-center {
+      position: relative;
+      left: 38%;
+      width: 100%;
+      margin-top: 8%;
+    }
+
+    .btn-download {
+      width: 20%;
+
+      display: flex;
+      justify-content: center;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: center;
+
+      margin-top: 8%;
+    }
+
+    .button-group-guter{
+      width: 2%;
+    }
+
+    .button {
+      text-align: center;
+      text-decoration: none;
+      padding: 2%;
+      border-radius: 5px;
       border: none;
-      padding: 14px 25px;
-      border-radius: 7px;
-      font-size: 16px;
+      cursor: pointer;
+      font-size: 14px;
+      color: white;
+      background-color: rgb(15, 120, 254);
     }
+
+    .button:hover {
+      border: none;
+      background-color: rgb(15, 80, 254);
+    }
+
+    .button:focus {
+      border: none;
+      outline: none;
+    }
+
+    #android,
+    #ios,
+    #unknown,
+    .download-content,
+    .wechat-content {
+      display: none;
+    }
+
+    .wechat-content {
+      margin-top: 30px;
+      padding: auto;
+      font-size: large;
+    }
+
+    .wechat-content ul {
+      padding-left: 0;
+      list-style-position: inside;
+    }
+
+    .wechat-content li+li {
+      margin-top: 15px;
+    }
+
+    .wechat-content li * {
+      line-height: 30px;
+      vertical-align: middle;
+    }
+
   </style>
+
+  <script type="text/javascript">
+    var arrLang = {
+      "en": {
+        interactive: "Remote",
+        openDownload: "Open download",
+        nowDownload: "Download",
+        wechatTip: "You used WeChat to scan the QR code, please:",
+        select: "select",
+        download: "download",
+        clickTip: "Click on the top right corner of the screen",
+        ardDownload: "Android download",
+        iosDownload: "IOS download"
+      },
+      "zh": {
+        interactive: "Remote",
+        openDownload: "打开下载",
+        nowDownload: "立即下载",
+        wechatTip: "您使用了微信扫描二维码，请：",
+        select: "选择",
+        download: "下载",
+        clickTip: "点击屏幕右上角",
+        ardDownload: "Android版下载",
+        iosDownload: "IOS版下载"
+      }
+    };
+
+    function IsAndroidDevice(ua) {
+      return /android/gi.test(ua);
+    }
+
+    function IsIOSDevice(ua) {
+      return /iphone|ipad/gi.test(ua);
+    }
+
+    function isWeixin(ua) {
+      if ((/MicroMessenger/i).test(ua)) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    window.onload = function () {
+      var elements;
+      var downloadBtn;
+      var wechatContent;
+      var length;
+      var ua = navigator.userAgent.toLowerCase();
+
+      if (IsAndroidDevice(ua)) {
+        elements = document.getElementById("android");
+      } else if (IsIOSDevice(ua)) {
+        elements = document.getElementById("ios");
+      } else {
+        elements = document.getElementById("unknown");
+      }
+      elements.style.display = "block";
+
+      if (isWeixin(ua)) {
+        wechatContent = document.getElementsByClassName("wechat-content");
+        length = wechatContent.length;
+        for (var i = 0; i < length; i++) {
+          wechatContent[i].style.display = "block"
+        }
+      } else {
+        downloadBtn = document.getElementsByClassName("download-content");
+        length = downloadBtn.length;
+        for (var i = 0; i < length; i++) {
+          downloadBtn[i].style.display = "block"
+        }
+      }
+
+      var element = document.getElementsByClassName('lang');
+      var lang = navigator.browserLanguage ? navigator.browserLanguage.slice(0,2) : navigator.language.slice(0,2);
+      if(Object.keys(arrLang).includes(lang)) {
+        for(let i = 0; i < element.length; i++) {
+          const attr = element[i].getAttribute('key');
+          element[i].innerHTML = arrLang[lang][attr];
+        }
+      }
+    }
+
+    function downloadAndroid() {
+      var href = "https://myou.cvte.com/redirect?tag=f0bc56af02bd36377392d3ff0ec185473232fb4e_BytelloRemote";
+      var iframe = document.createElement("iframe");
+      iframe.src = href;
+      iframe.style.display = "none";
+      document.body.appendChild(iframe);
+    }
+  </script>
 </head>
+
 <body>
   <div class="container">
-    <h1>EarnSurvey Kenya</h1>
-    <p>Welcome to EarnSurvey Kenya!</p>
-    <p>Participate in surveys and earn rewards.</p>
-    <p>Registration and account verification coming soon.</p>
-    <button onclick="alert('Registration coming soon!')">
-      Get Started
-    </button>
+
+    <div class="icon">
+      <div class="icon-around"></div>
+      <img class="icon-img" src="./pictures/icon.png" />
+      <div class="icon-around"></div>
+    </div>
+
+    <div id="android">
+      <div class="horizontal-center">
+        <img class="full-width" src="./pictures/android.png">
+      </div>
+      <div class="download-content mobile-horizontal-center" style="display: block;">
+        <a onclick="downloadAndroid()" class="btn-download button" key="nowDownload">
+          <img src="./pictures/download_icon.png">
+        </a>
+      </div>
+      <div class="wechat-content horizontal-center">
+        <ul>
+          <h4 class="lang" key="wechatTip">您使用了微信扫描二维码，请：</h4>
+          <li>
+            <span class="lang" key="clickTip">点击屏幕右上角</span>
+            <img src="./pictures/step1.png" height="30px">
+          </li>
+          <li>
+            <span class="lang" key="select">选择</span>
+            <img src="./pictures/step2.png" height="30px">
+            <span class="lang" key="download">下载</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="ios">
+      <div class="horizontal-center">
+        <img class="full-width" src="./pictures/ios.png">
+      </div>
+      <div class="download-content mobile-horizontal-center" style="display: block;">
+        <a href="https://itunes.apple.com/app/id1621201264?mt=8" class="button btn-download" key="iosDownload">
+          <img src="./pictures/download_icon.png">
+        </a>
+      </div>
+    </div>
+
+    <div id="unknown">
+      <div class="horizontal-center">
+        <img class="full-width" src="./pictures/android.png">
+      </div>
+      <div class="button-group">
+        <a class="btn-download button lang" onclick="downloadAndroid()" key="ardDownload">Android版下载</a>
+        <div class="button-group-guter"></div>
+        <a href="https://itunes.apple.com/app/id1621201264?mt=8" class="btn-download button lang" key="iosDownload">IOS版下载</a>
+      </div>
+    </div>
+
   </div>
 </body>
+
 </html>
